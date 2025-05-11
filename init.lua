@@ -240,7 +240,42 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  {
+    'eandrju/cellular-automaton.nvim',
+    cmd = 'CellularAutomaton', -- Lazy-load only when the command is used
+  },
+  {
+  "folke/snacks.nvim",
+  priority = 1000,
+  lazy = false,
+  ---@type snacks.Config
+  opts = {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+    bigfile = { enabled = true },
+    dashboard = { enabled = true },
+    explorer = { enabled = true },
+    indent = { enabled = true },
+    input = { enabled = true },
+    picker = { enabled = true },
+    notifier = { enabled = true },
+    quickfile = { enabled = true },
+    scope = { enabled = true },
+    scroll = { enabled = true },
+    statuscolumn = { enabled = true },
+    words = { enabled = true },
+  },
+},
 
+-- require('lazy').setup({
+--   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
+--   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+--   {
+--     'eandrju/cellular-automaton.nvim',
+--     cmd = 'CellularAutomaton', -- Lazy-load only when the command is used
+--   },
+-- }
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
   -- keys can be used to configure plugin behavior/loading/etc.
@@ -520,7 +555,7 @@ require('lazy').setup({
           -- NOTE: Remember that Lua is a real programming language, and as such it is possible
           -- to define small helper and utility functions so you don't have to repeat yourself.
           --
-          -- In this case, we create a function that lets us more easily define mappings specific
+          -- In this case, we create a function that lets us more easily define require('lspconfig').clangd.setup {}mappings specific
           -- for LSP related items. It sets the mode, buffer and description for us each time.
           local map = function(keys, func, desc, mode)
             mode = mode or 'n'
@@ -663,7 +698,7 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
+        clangd = {},
         -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
