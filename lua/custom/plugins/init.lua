@@ -3,8 +3,38 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  {
-    'eandrju/cellular-automaton.nvim',
-    cmd = 'CellularAutomaton',
-  },
+  -- {
+  --   'eandrju/cellular-automaton.nvim',
+  --   cmd = 'CellularAutomaton',
+  -- },
+  -- {
+  --   'echasnovski/mini.sessions',
+  --   version = false,
+  --   config = function()
+  --     require('mini.sessions').setup()
+  --   end,
+  -- },
+  -- {
+  --   'folke/snacks.nvim',
+  --   priority = 1000,
+  --   lazy = false,
+  --   opts = {
+  --     bigfile = { enabled = true },
+  --     dashboard = {
+  --       enabled = true,
+  --       sections = require 'config.snacks_dashboard',
+  --     },
+  --     explorer = { enabled = true },
+  --     indent = { enabled = true },
+  --     input = { enabled = true },
+  --     picker = { enabled = true },
+  --     notifier = { enabled = true },
+  --     quickfile = { enabled = true },
+  --     scope = { enabled = true },
+  --     scroll = { enabled = true },
+  --     statuscolumn = { enabled = true },
+  --     words = { enabled = true },
+  --     { title = 'Sessions', padding = 1 },
+  --   },
+  -- },
 }
