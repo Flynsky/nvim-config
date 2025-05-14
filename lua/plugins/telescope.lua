@@ -23,7 +23,7 @@ return {
   },
   config = function()
     -- [[ Configure Telescope ]]
-    require('telescope').load_extension 'persisted'
+    -- require('telescope').load_extension 'persisted'
     -- See `:help telescope` and `:help telescope.setup()`
     require('telescope').setup {
       -- You can put your default mappings / updates / etc. in here

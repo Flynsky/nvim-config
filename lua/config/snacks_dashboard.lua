@@ -28,5 +28,6 @@ return {
     ttl = 5 * 60,
     indent = 3,
   },
-  { section = 'startup' },
+  { pane = 2, section = 'startup', indent = 2, padding = 1 },
+  -- { section = 'startup' },
 }
