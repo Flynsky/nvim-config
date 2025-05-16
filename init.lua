@@ -1,4 +1,3 @@
---  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
@@ -34,6 +33,12 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set('n', '<M-k>', '{', { noremap = true })
+vim.keymap.set('n', '<M-j>', '}', { noremap = true })
+-- Tab switching like in Firefox:
+for i = 1, 9 do
+  vim.keymap.set('n', '<M-' .. i .. '>', i .. 'gt', { noremap = true, silent = true })
+end
 
 -- [[ Basic Autocommands ]]
 -- Highlight when yanking (copying) text
@@ -55,7 +60,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
--- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   require 'config.colorschemes',
   require 'plugins.snacks',
@@ -68,6 +72,28 @@ require('lazy').setup({
   require 'plugins.blink', -- Autocompletion
   require 'plugins.todo-comments', --  Highlight todo, notes, etc in comments
   require 'plugins.treesitter', -- Sitting a tree
+  {
+    'LukasPietzschmann/telescope-tabs',
+    config = function()
+      require('telescope').load_extension 'telescope-tabs'
+      require('telescope-tabs').setup {
+        -- Your custom config :^)
+      }
+    end,
+    dependencies = { 'nvim-telescope/telescope.nvim' },
+  },
+  -- {
+  --   'Aaronik/GPTModels.nvim',
+  --   dependencies = {
+  --     'MunifTanjim/nui.nvim',
+  --     'nvim-telescope/telescope.nvim',
+  --   },
+  --   vim.api.nvim_set_keymap('v', '<leader>a', ':GPTModelsCode<CR>', { noremap = true }),
+  --   vim.api.nvim_set_keymap('n', '<leader>a', ':GPTModelsCode<CR>', { noremap = true }),
+  --
+  --   vim.api.nvim_set_keymap('v', '<leader>c', ':GPTModelsChat<CR>', { noremap = true }),
+  --   vim.api.nvim_set_keymap('n', '<leader>c', ':GPTModelsChat<CR>', { noremap = true }),
+  -- },
   {
     'eandrju/cellular-automaton.nvim',
     cmd = 'CellularAutomaton', -- Lazy-load only when the command is used
@@ -96,8 +122,6 @@ require('lazy').setup({
   -- { import = 'custom.plugins' },
 }, {
   ui = {
-    -- If you are using a Nerd Font: set icons to an empty table which will use the
-    -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
     icons = vim.g.have_nerd_font and {} or {
       cmd = '⌘',
       config = '🛠',
@@ -116,5 +140,4 @@ require('lazy').setup({
   },
 })
 
--- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

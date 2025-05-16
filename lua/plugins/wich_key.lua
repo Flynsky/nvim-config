@@ -47,6 +47,13 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>s', group = '[S]earch' },
       { '<leader>t', group = '[T]oggle' },
       { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
-    },
+    }, -- Register custom mappings after which-key loads
+
+    -- on_init = function()
+    --   local wk = require 'which-key'
+    --   wk.register {
+    --     ['<leader>r'] = { '<cmd>b#<CR>', 'Go to last buffer' },
+    --   }
+    -- end,
   },
 }

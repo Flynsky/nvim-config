@@ -6,7 +6,7 @@ return {
     bigfile = { enabled = true },
     dashboard = {
       enabled = true,
-      sections = require 'config.snacks_dashboard',
+      sections = require 'config.snacks_dashboard', -- Make the dashboard floating
     },
     preset = {
       -- Defaults to a picker that supports `fzf-lua`, `telescope.nvim` and `mini.pick`
