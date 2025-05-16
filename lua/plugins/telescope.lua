@@ -83,4 +83,12 @@ return {
       builtin.find_files { cwd = vim.fn.stdpath 'config' }
     end, { desc = '[S]earch [N]eovim files' })
   end,
+  -- new funktion to open buffers
+  vim.keymap.set('n', '<leader>b', function()
+    require('telescope.builtin').buffers {
+      sort_mru = true,
+      ignore_current_buffer = true,
+      show_all_buffers = false,
+    }
+  end),
 }
