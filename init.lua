@@ -80,6 +80,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   require 'config.colorschemes',
+  require 'plugins.nvim-transparent',
   require 'plugins.snacks',
   require 'plugins.telescope',
   -- require 'plugins.persisted',
