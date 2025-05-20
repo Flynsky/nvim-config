@@ -29,6 +29,8 @@ vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>') -- exiting Terminal with single tab
 vim.keymap.set('t', '<CR>', '<CR><C-\\><C-n>', { desc = 'Enter and leave terminal insert mode' }) -- exiting Insert Mode in Terminal when pressed Enter
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>t', ':vsplit | terminal<CR>', { desc = 'New terminal in split screen', noremap = true, silent = true })
+vim.keymap.set('n', '<leader>u', ':LspRestart clangd<CR>', { desc = 'LspRestart clangd', noremap = true })
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
@@ -61,6 +63,21 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
+-- -- Auto-resize focused window
+-- vim.api.nvim_create_autocmd('WinEnter', {
+--   callback = function()
+--     vim.cmd 'resize +2' -- increase height
+--     vim.cmd 'vertical resize +10' -- increase width
+--   end,
+-- })
+--
+-- vim.api.nvim_create_autocmd('WinLeave', {
+--   callback = function()
+--     vim.cmd 'resize -2' -- decrease height
+--     vim.cmd 'vertical resize -10' -- decrease width
+--   end,
+-- })
+
 require('lazy').setup({
   require 'config.colorschemes',
   require 'plugins.snacks',
@@ -73,6 +90,7 @@ require('lazy').setup({
   require 'plugins.blink', -- Autocompletion
   require 'plugins.todo-comments', --  Highlight todo, notes, etc in comments
   require 'plugins.treesitter', -- Sitting a tree
+  require 'plugins.lualine', -- polished status line
   {
     'LukasPietzschmann/telescope-tabs',
     config = function()

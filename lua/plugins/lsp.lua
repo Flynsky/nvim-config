@@ -112,11 +112,11 @@ return {
         -- code, if the language server you are using supports them
         --
         -- This may be unwanted, since they displace some of your code
-        if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
-          map('<leader>th', function()
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
-          end, '[T]oggle Inlay [H]ints')
-        end
+        -- if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
+        --   map('<leader>th', function()
+        --     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
+        --   end, '[T]oggle Inlay [H]ints')
+        -- end
       end,
     })
 
@@ -169,6 +169,18 @@ return {
       clangd = {
         cmd = { 'clangd', '--compile-commands-dir=.' },
         root_dir = require('lspconfig.util').root_pattern('compile_commands.json', '.git'),
+      },
+      -- VHDL Language Server
+      vhdl_ls = {
+        cmd = { 'vhdl_ls' },
+        filetypes = { 'vhdl' },
+        root_dir = require('lspconfig.util').root_pattern('vhdl_ls.toml', '.git'),
+        settings = {
+          vhdl_ls = {
+            -- example configuration; adjust to your project
+            linting = true,
+          },
+        },
       },
       -- clangd = {}, --stock config
       -- gopls = {},
