@@ -18,6 +18,8 @@ require('lazy').setup({
   require 'plugins.todo-comments', --  Highlight todo, notes, etc in comments
   require 'plugins.treesitter', -- Sitting a tree
   require 'plugins.lualine', -- polished status line
+  require 'plugins.bufferline', -- polished tab bars
+  -- require 'plugins.hardtime', -- finds bad typing habits and recomneds alternatives
   {
     'eandrju/cellular-automaton.nvim',
     cmd = 'CellularAutomaton', -- Lazy-load only when the command is used

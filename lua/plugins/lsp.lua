@@ -174,13 +174,36 @@ return {
       vhdl_ls = {
         cmd = { 'vhdl_ls' },
         filetypes = { 'vhdl' },
-        root_dir = require('lspconfig.util').root_pattern('vhdl_ls.toml', '.git'),
+        root_dir = require('lspconfig.util').root_pattern 'vhdl_ls.toml',
         settings = {
           vhdl_ls = {
             -- example configuration; adjust to your project
             linting = true,
           },
         },
+      },
+      texlab = {
+        --   -- cmd = { 'texlab' },
+        --   -- filetypes = { 'tex', 'bib' },
+        --   -- root_dir = require('lspconfig.util').root_pattern('.latexmkrc', '.texlab', '.git'),
+        --   -- settings = {
+        --   --   texlab = {
+        --   --     build = {
+        --   --       executable = 'latexmk',
+        --   --       args = { '-pdf', '-interaction=nonstopmode', '-synctex=1', '%f' },
+        --   --       onSave = true,
+        --   --       forwardSearchAfter = false,
+        --   --     },
+        --   --     forwardSearch = {
+        --   --       executable = 'zathura', -- or "okular", "evince", etc.
+        --   --       args = { '--synctex-forward', '%l:1:%f', '%p' },
+        --   --     },
+        --   --     chktex = {
+        --   --       onOpenAndSave = true,
+        --   --       onEdit = false,
+        --   --     },
+        --   --   },
+        --   -- },
       },
       -- clangd = {}, --stock config
       -- gopls = {},
