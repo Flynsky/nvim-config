@@ -167,8 +167,19 @@ return {
     local servers = {
       -- check for comile.commands before
       clangd = {
-        cmd = { 'clangd', '--compile-commands-dir=.' },
+        cmd = {
+          'clangd',
+          '--compile-commands-dir=.',
+          '--clang-tidy',
+          '--clang-tidy-checks=*',
+          '--completion-style=detailed',
+          '--header-insertion=iwyu',
+          '--pch-storage=memory',
+        },
         root_dir = require('lspconfig.util').root_pattern('compile_commands.json', '.git'),
+        init_options = {
+          clangdFileStatus = true,
+        },
       },
       -- VHDL Language Server
       vhdl_ls = {

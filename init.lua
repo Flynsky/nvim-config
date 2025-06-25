@@ -20,10 +20,7 @@ require('lazy').setup({
   require 'plugins.lualine', -- polished status line
   require 'plugins.bufferline', -- polished tab bars
   -- require 'plugins.hardtime', -- finds bad typing habits and recomneds alternatives
-  {
-    'eandrju/cellular-automaton.nvim',
-    cmd = 'CellularAutomaton', -- Lazy-load only when the command is used
-  },
+  require 'plugins.cellular-automaton', -- polished tab bars
   require 'plugins.lazydev',
   -- require 'plugins.debug',
   -- require 'plugins.indent_line',
