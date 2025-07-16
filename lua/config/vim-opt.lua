@@ -26,3 +26,15 @@ vim.opt.scrolloff = 10
 vim.opt.confirm = true
 vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
 vim.opt.termguicolors = true
+--indentation C(++) files
+vim.cmd 'filetype plugin indent on'
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'c', 'cpp' },
+  callback = function()
+    vim.opt_local.cindent = true
+    vim.opt_local.expandtab = false -- or true, your choice
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.tabstop = 4
+    vim.opt_local.softtabstop = 4
+  end,
+})

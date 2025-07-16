@@ -215,6 +215,20 @@ return {
         --   --     },
         --   --   },
         --   -- },
+      }, -- Python (pyright)
+      pyright = {
+        cmd = { 'pyright-langserver', '--stdio' },
+        filetypes = { 'python' },
+        root_dir = require('lspconfig.util').root_pattern('.git', 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt'),
+        settings = {
+          python = {
+            analysis = {
+              typeCheckingMode = 'basic', -- or "off", "strict"
+              autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
+            },
+          },
+        },
       },
       -- clangd = {}, --stock config
       -- gopls = {},

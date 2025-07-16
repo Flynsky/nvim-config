@@ -13,6 +13,7 @@ require('lazy').setup({
   require 'plugins.auto-session',
   require 'plugins.wich_key', -- Key infos
   require 'plugins.lsp', -- Spellchecking
+  require 'plugins.vimtex', -- Latex Syntax
   require 'plugins.conform', -- Autoformat
   require 'plugins.blink', -- Autocompletion
   require 'plugins.todo-comments', --  Highlight todo, notes, etc in comments
