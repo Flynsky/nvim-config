@@ -1,7 +1,14 @@
 -- exiting Terminal with single tab
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
--- exiting Insert Mode in Terminal when pressed Enter
-vim.keymap.set('t', '<CR>', '<CR><C-\\><C-n>', { desc = 'Enter and leave terminal insert mode' })
+
+-- Clear search highlight in normal mode
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+-- Exit terminal insert mode with ESC only
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode with ESC' })
+
+-- -- exiting Insert Mode in Terminal when pressed Enter
+-- vim.keymap.set('t', '<CR>', '<CR><C-\\><C-n>', { desc = 'Enter and leave terminal insert mode' })
 
 -- Terminal buffer acessable via <C+J> like in VSC
 -- _G.vertical_term_bufnr = nil -- Store the terminal buffer number globally
