@@ -14,13 +14,15 @@ require('lazy').setup({
   require 'plugins.wich_key', -- Key infos
   require 'plugins.lsp', -- Spellchecking
   require 'plugins.vimtex', -- Latex Syntax
+  -- require 'plugins.luxmotion', -- smoother animations
+  require 'plugins.smear', -- smear animations
   require 'plugins.conform', -- Autoformat
   require 'plugins.blink', -- Autocompletion
   require 'plugins.todo-comments', --  Highlight todo, notes, etc in comments
   require 'plugins.treesitter', -- Sitting a tree
   require 'plugins.lualine', -- polished status line
   require 'plugins.bufferline', -- polished tab bars
-  -- require 'plugins.hardtime', -- finds bad typing habits and recomneds alternatives
+  require 'plugins.hardtime', -- finds bad typing habits and recomneds alternatives
   require 'plugins.cellular-automaton', -- polished tab bars
   require 'plugins.lazydev',
   -- require 'plugins.debug',

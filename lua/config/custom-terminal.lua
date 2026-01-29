@@ -9,7 +9,7 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode with ES
 
 -- -- exiting Insert Mode in Terminal when pressed Enter
 -- vim.keymap.set('t', '<CR>', '<CR><C-\\><C-n>', { desc = 'Enter and leave terminal insert mode' })
-
+--
 -- Terminal buffer acessable via <C+J> like in VSC
 -- _G.vertical_term_bufnr = nil -- Store the terminal buffer number globally
 -- vim.keymap.set('n', '<C-t>', function()
