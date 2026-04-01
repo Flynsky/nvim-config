@@ -22,9 +22,10 @@ require('lazy').setup({
   require 'plugins.treesitter', -- Sitting a tree
   require 'plugins.lualine', -- polished status line
   require 'plugins.bufferline', -- polished tab bars
-  require 'plugins.hardtime', -- finds bad typing habits and recomneds alternatives
+  -- require 'plugins.hardtime', -- finds bad typing habits and recomneds alternatives
   require 'plugins.cellular-automaton', -- polished tab bars
   require 'plugins.lazydev',
+  require 'plugins.img-clip',
   -- require 'plugins.debug',
   -- require 'plugins.indent_line',
   -- require 'plugins.lint',
