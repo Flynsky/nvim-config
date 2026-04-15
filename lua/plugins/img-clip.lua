@@ -24,8 +24,7 @@ return {
       tex = {
         relative_template_path = false, ---@type boolean | fun(): boolean
         template = [[
-\begin{figure}[h]
-  \centering
+\begin{figure}[H]
   \includegraphics[width=0.8\textwidth]{$FILE_PATH}
   \caption{$CURSOR}
   \label{fig:$LABEL}
