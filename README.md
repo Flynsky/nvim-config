@@ -10,3 +10,7 @@ add in init.lua:
 vim.opt.shell = '"C:/Program Files/Git/bin/bash.exe"'
 vim.opt.shellcmdflag = "-c"
 ````
+Install Tree:
+````
+winget install GnuWin32.Tree
+````
