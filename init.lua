@@ -25,6 +25,7 @@ require('lazy').setup({
   -- require 'plugins.hardtime', -- finds bad typing habits and recomneds alternatives
   require 'plugins.cellular-automaton', -- polished tab bars
   require 'plugins.lazydev',
+  require 'plugins.markdown',
   require 'plugins.img-clip',
   -- require 'plugins.debug',
   -- require 'plugins.indent_line',
